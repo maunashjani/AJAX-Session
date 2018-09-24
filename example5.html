@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script>
+    function Calculate() {
+          
+          var num1 = document.getElementById("v1").value;
+          var num2 = document.getElementById("v2").value;
+        
+          var xhr = new XMLHttpRequest();
+          xhr.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+              document.getElementById("answer").innerHTML = "<h1>" + this.responseText + "</h1>";
+            }
+          };
+          xhr.open("GET", "sample1.php?v1="+num1+"&v2="+num2, true);
+          xhr.send();
+        }
+        </script>
+</head>
+
+<body>
+
+  <h1>PHP AJAX Simple</h1>
+
+  Enter Value 1:
+  <input type="text" id="v1" name="v1">
+  <br>
+  Enter Value 2:
+  <input type="text" id="v2" name="v2">
+  <br>
+  <button onclick="Calculate()">Calculate</button>
+  <br>
+  <p id="answer">Answer here...</p>
+</body>
+
+</html>
