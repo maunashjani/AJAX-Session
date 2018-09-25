@@ -2,11 +2,11 @@
 
 <head>
   <script>
-    function getFoodData(dataSource, dataDestination) {
+    function getFoodData(dataSource) {
       var xhr = new XMLHttpRequest();
       xhr.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-          document.getElementById(dataDestination).innerHTML = "<h1>" + this.responseText + "</h1>";
+          document.getElementById("demo").innerHTML = "<h1>" + this.responseText + "</h1>";
         }
       };
       xhr.open("GET", dataSource, true);
@@ -19,13 +19,13 @@
 
   <h1>AJAX Simple Example - Mouseover</h1>
 
-  <img src='sandwich.jpg' onmouseover="getFoodData('sandwich.txt','targetDiv')">
-  <img src='pizza.jpg' onmouseover="getFoodData('pizza.txt','targetDiv')">
-  <img src='pasta.jpg' onmouseover="getFoodData('pasta.txt','targetDiv')">
-  
-  <div id="targetDiv">
-    <p>The fetched data will go here.</p>
-  </div>
+  <img src='sandwich.jpg' onmouseover="getFoodData('sandwich.txt')">
+  <img src='pizza.jpg' onmouseover="getFoodData('pizza.txt')">
+  <img src='pasta.jpg' onmouseover="getFoodData('pasta.txt')">
+
+
+  <p id="demo">The fetched data will go here.</p>
 
 </body>
+
 </html>
